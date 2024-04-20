@@ -1,6 +1,7 @@
 import axios from "axios";
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
+import chalk from "chalk";
 
 const apiurl = "https://randomuser.me/api/";
 
@@ -36,6 +37,19 @@ const getRoommatesQuery = async (req, res) => {
     return roommatesJson;
   } catch (error) {
     console.log(error);
+  }
+};
+
+const eliminarRoommateQuery = async (id) => {
+  try {
+    const roommatesJSON = await fs.readFileSync("data/roommates.json", "utf8");
+    console.log(chalk.underline.bgCyanBright.magenta.bold.italic(roommatesJSON));
+    let { roommates } = JSON.parse(roommatesJSON);
+    roommates = roommates.filter((r) => r.id !== id);
+    await fs.writeFileSync("data/roommates.json", JSON.stringify({ roommates }));
+    console.log(roommates);
+  } catch (error) {
+    console.error('Error al eliminar el roommate:', error.message);
   }
 };
 
@@ -139,6 +153,4 @@ const recalcularDeudas = () => {
   fs.writeFileSync("./data/roommates.json", JSON.stringify({ roommates }));
 };
 
-
-
-export { addRoommateQuery, getRoommatesQuery, recalcularDeudas };
+export { eliminarRoommateQuery, addRoommateQuery, getRoommatesQuery, recalcularDeudas };
