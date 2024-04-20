@@ -18,12 +18,12 @@
 </head> 
 
 <body class="p-4">
-  <h1 class="">Roommates</h1>
+  <h1 id="titulo-proyecto" class="">Roommates</h1>
   <hr class="mb-5 bg-light w-25 mx-auto" />
   <div class="row w-100 m-auto">
     
-    <div class="col-4">
-      <button class="btn btn-outline-success text-white mb-2" onclick="nuevoRoommate()">
+    <div id="cuerpo-formulario" class="col-4">
+      <button id="boton-agregar-roommate" class="btn btn-outline-success text-white mb-2" onclick="nuevoRoommate()">
         Agregar roommate
       </button>
       <div class="border rounded p-2 m-auto p-4">
@@ -41,16 +41,15 @@ Articulos de limpieza</textarea>
           <input class="form-control w-50 mb-2" id="monto" type="number" value="15000" />
         </div>
         <div class="d-block my-1">
-          <button class="btn btn-outline-success text-white m-auto" onclick="agregarGasto()">
+          <button id="boton-agregar-gasto" class="btn btn-outline-success text-white m-auto" onclick="agregarGasto()">
             Agregar
           </button>
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div  class="col-4">
       <div>
-        <h4>Historial de Gastos</h4>
-        <hr class="bg-light w-25 mx-auto" />
+        <h4>Historial de Gastos</h4>        
 
         <table class="table">
           <thead class="text-white">
@@ -63,7 +62,7 @@ Articulos de limpieza</textarea>
         </table>
       </div>
     </div>
-    <div class="col-4">
+    <div  class="col-4">
       <h5>Distribucion de Gastos</h5>    
       <table class="table">
         <thead class="text-white">
@@ -97,7 +96,7 @@ Articulos de limpieza</textarea>
               <input class="form-control w-50 mb-2" id="montoModal" type="number" value="20000" />
             </div>
             <div class="d-block my-1">
-              <button class="btn btn-outline-warning text-white m-auto" onclick="updateGasto()">
+              <button id="boton-editar-modal" class="btn btn-outline-warning text-white m-auto" onclick="updateGasto()">
                 Editar
               </button>
             </div>
@@ -151,6 +150,11 @@ Articulos de limpieza</textarea>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    
+    <script src="/js/alert-tooltip.js"></script>
+    <script src="/js/cambio-color-titulo-proyecto.js"></script>
+    <script src="/js/gira-imagen.js"></script>
+    <script src="/js/parpadea-fadetoggle.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -215,8 +219,8 @@ Articulos de limpieza</textarea>
                   <td>${g.descripcion}</td>
                   <td>${g.monto}</td>
                   <td class="d-flex align-items-center justify-content-between">
-                    <i class="fas fa-edit text-warning" onclick="editGasto('${g.id}')" data-toggle="modal" data-target="#exampleModal"></i>
-                    <i class="fas fa-trash-alt text-danger" onclick="deleteGasto('${g.id}')" ></i>
+                    <i id="boton-editar" class="fas fa-edit text-warning" onclick="editGasto('${g.id}')" data-toggle="modal" data-target="#exampleModal"></i>
+                    <i id="boton-eliminar" class="fas fa-trash-alt text-danger" onclick="deleteGasto('${g.id}')" ></i>
                   </td>
                 </tr>
               `);
