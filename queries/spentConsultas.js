@@ -1,5 +1,7 @@
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
+import chalk from "chalk";
+
 
 const getGastosQuery = async () => {
   const gastosJson = JSON.parse(fs.readFileSync("./data/gastos.json", "utf-8"));

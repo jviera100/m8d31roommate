@@ -1,4 +1,5 @@
 import express from 'express';
+import chalk from "chalk";
 import roomRoutes from './routes/roommatesRoutes.js';
 import spentRoutes from './routes/gastosRoutes.js';
 import setupMiddlewares from './middlewares/middlewares.js';

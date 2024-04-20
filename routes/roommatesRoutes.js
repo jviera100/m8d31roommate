@@ -1,4 +1,5 @@
 import express from 'express';
+import chalk from "chalk";
 
 import { addRoommates, eliminarRoommates, getRoommates } from '../controller/roommatesController.js'
 import { getGastos } from '../controller/gastosController.js'
